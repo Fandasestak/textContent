@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+</head>
+
+<body style="background-color: black;">
+
+    <!-- HTML -->
+    <div class="changetextContainer">
+        <h1 class="vysvětlení">How the code works:</h1>
+        <h2> textContent</h2>
+        <button class="changeText" id="button" onclick="changeButton()">click for activate function</button>
+    </div>
+    <!--  -->
+
+    <!-- CSS  -->
+    <style>
+        .changetextContainer button {
+            display: grid;
+            align-items: center;
+            position: fixed;
+            color: grey;
+            margin: 25px;
+            background: none;
+        }
+
+        .changetextContainer h1,
+        h2 {
+            display: inline;
+            text-align: left;
+            color: grey;
+            font-size: 25px;
+        }
+
+        .changetextContainer h2 {
+            color: navy
+        }
+    </style>
+    <!--  -->
+
+    <!-- JavaScript -->
+    <script>
+
+        // add Function 
+        function changeButton() {
+            // add HTML button ID => JS (now, we can work with button with name => changeElement)
+            var changeElement = document.getElementById("button");
+
+            // If the text in the button is written like this..., change the text to this... 
+            if (changeElement.textContent === "click for activate function") {
+                changeElement.textContent = "changed";
+
+                // added CSS
+                changeElement.style.color = "navy";
+                changeElement.style.border = "none";
+                changeElement.style.transition = "1s";
+            } else {
+                // if the condition is not met then do this... 
+                changeElement.textContent = "back";
+                // added CSS
+                changeElement.style.color = "grey"
+                changeElement.style.border = "none";
+                changeElement.style.transition = "1s";
+            };
+            // if the text in the button is written like this..., change the text to this...
+            if (changeElement.textContent === "back") {
+
+                // if we press the button, the function actived, back() 
+                changeElement.addEventListener("click", function back() {
+                    changeElement.textContent = "Reset this web for reapet";
+                    // added CSS 
+                    changeElement.style.border = "none";
+                    changeElement.style.color = "black";
+                    changeElement.style.transition = "3s";
+                });
+            };
+        }
+    </script>
+    <!-- -->
+
+</body>
+
+</html>
